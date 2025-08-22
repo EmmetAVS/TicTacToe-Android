@@ -1,5 +1,7 @@
 package com.example.tictactoe;
 
+import kotlin.random.Random
+
 class AI(val difficulty: Difficulty) {
 
     public enum class Difficulty {
@@ -153,6 +155,10 @@ class AI(val difficulty: Difficulty) {
     fun getMove(board: Array<Array<Model.BoardItem>>): Pair<Int, Int> {
 
         if (difficulty == Difficulty.Hard) {
+
+            val moveList = getMoveList(board)
+            if (moveList.size == 4 && Random.nextBoolean()) return moveList.random()
+
             val lastMove: Pair<Int, Int> = Pair(0, 0);
             return findBestMoveHard(board, Model.BoardItem.AI, 0, lastMove).first;
         } else if (difficulty == Difficulty.Medium) {

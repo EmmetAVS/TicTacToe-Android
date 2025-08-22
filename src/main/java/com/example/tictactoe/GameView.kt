@@ -88,7 +88,6 @@ fun TicTacToeBoard(model: Model) {
                         Box(
                             modifier = Modifier
                                 .size(100.dp)
-                                .background(Constants.Theme.BACKGROUND)
                                 .clickable(
                                     board[y][x] == Model.BoardItem.Empty
                                             && !model.gameover()
